@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_find"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/find"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_report"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/report"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_video"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/video"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_mine"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/mine"
+        app:showAsAction="ifRoom"/>
+</menu>

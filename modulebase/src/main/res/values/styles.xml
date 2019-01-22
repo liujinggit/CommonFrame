@@ -1,0 +1,101 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/title_bar_color</item>
+        <item name="colorPrimaryDark">@color/title_bar_color</item>
+        <item name="colorAccent">@color/title_bar_color</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:listDivider">@color/colorPrimaryDark</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+
+    <style name="anim_view">
+        <item name="@android:windowEnterAnimation">@anim/top_in</item>
+        <item name="@android:windowExitAnimation">@anim/top_out</item>
+    </style>
+
+    <!-- 弹出框动画 由下至上 -->
+    <style name="dialogStyle" parent="@android:style/Animation.Dialog">
+        <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
+        <!-- 进入时的动画 -->
+        <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
+        <!-- 退出时的动画 -->
+    </style>
+
+    <!-- popupwindow向下弹出 -->
+    <style name="AnimDown" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_out</item>
+    </style>
+
+    <!--popupwindow向右弹出 -->
+    <style name="AnimRight" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_left_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_left_out</item>
+    </style>
+    <!--popupwindow向左弹出 -->
+    <style name="AnimLeft" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_right_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_right_out</item>
+    </style>
+    <!--popupwindow向上弹出 -->
+    <style name="AnimUp" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+
+    <style name="BottomDialog" parent="@style/AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
+        <!-- 进入时的动画 -->
+        <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
+        <!-- 退出时的动画 -->
+        <item name="android:background">@color/translucent</item>
+        <item name="android:windowBackground">@color/translucent</item>
+        <item name="android:windowContentOverlay">@color/translucent</item>
+    </style>
+
+    <!-- my loading dialog -->
+    <style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <!-- 仿微信朋友圈拖拽效果 -->
+    <declare-styleable name="DragRelativeLayout">
+        <!-- 动画时长  默认 400 -->
+        <attr name="drl_duration" format="integer"></attr>
+        <!-- 恢复系数 [0~1] 默认0.1-->
+        <attr name="drl_resume_ratio" format="float"></attr>
+        <!-- y方向开始平移系数 0~1.0 默认 0.5 -->
+        <attr name="drl_translationY_ratio" format="float"></attr>
+        <!-- y方向平移速率 1~oo 默认 2 -->
+        <attr name="drl_translationY_rate" format="integer"></attr>
+        <!-- 是否可以拖拽 默认true -->
+        <attr name="drl_drag_enable" format="boolean"></attr>
+        <!--是否是头条样式 默认false-->
+        <attr name="drl_tt_style_enable" format="boolean"></attr>
+    </declare-styleable>
+
+    <!-- 透明的主题 -->
+    <style name="translucent" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+</resources>

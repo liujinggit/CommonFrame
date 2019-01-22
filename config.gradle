@@ -1,0 +1,58 @@
+/**
+ *  全局统一配置文件
+ */
+ext {
+
+    versions = [
+            versionCode             : 1,                    //版本号
+            versionName             : "1.0.0",              //版本名称
+            compileSdkVersion       : 27,
+            buildToolsVersion       : "27.0.3",
+            minSdkVersion           : 16,
+            targetSdkVersion        : 26,
+
+            androidSupportSdkVersion: "25.1.0",
+            constraintLayoutVersion : "1.1.3",
+            multidexVersion         : "1.0.2",
+            annotationsVersion      : "24.0.0",
+
+    ]
+    dependencies = [
+            "appcompat_v7"        : "com.android.support:appcompat-v7:${versions["androidSupportSdkVersion"]}",
+            "constraint_layout"   : "com.android.support.constraint:constraint-layout:${versions["constraintLayoutVersion"]}",
+            "support-v4"          : "com.android.support:support-v4:${versions["androidSupportSdkVersion"]}",
+            "recyclerview-v7"     : "com.android.support:recyclerview-v7:${versions["androidSupportSdkVersion"]}",
+            "multidex"            : "com.android.support:multidex:${versions["multidexVersion"]}",
+            "design"              : "com.android.support:design:${versions["androidSupportSdkVersion"]}",
+            "support_annotations" : "com.android.support:support-annotations:${versions["annotationsVersion"]}",
+
+            //fresco
+            "fresco"              : "com.facebook.fresco:fresco:1.9.0",
+            //基于fresco点击图片放大效果
+            "photodraweeview"     : "me.relex:photodraweeview:1.1.3",
+
+            //事件订阅
+            "eventBus"            : "org.greenrobot:eventbus:3.1.1",
+
+            //路由
+            "arouter_api"         : "com.alibaba:arouter-api:1.4.1",
+            "arouter_compiler"    : "com.alibaba:arouter-compiler:1.2.2",
+            //滑动返回
+            "swipeback"           : 'me.imid.swipebacklayout.lib:library:1.1.0',
+            //rx
+            "rxbinding"           : 'com.jakewharton.rxbinding:rxbinding:1.0.1',
+            "rxandroid"           : 'io.reactivex:rxandroid:1.2.1',
+            "rxjava"              : 'io.reactivex:rxjava:1.3.3',
+            //net的框架
+            "retrofit"            : 'com.squareup.retrofit2:retrofit:2.4.0',
+            "retrofit_converter"  : 'com.squareup.retrofit2:converter-gson:2.4.0',
+            "okhttp3_logging"     : 'com.squareup.okhttp3:logging-interceptor:3.11.0',
+            "retrofit2_adapter"   : 'com.squareup.retrofit2:adapter-rxjava:2.4.0',
+            //黄油刀
+            "butterknife_compiler": "com.jakewharton:butterknife-compiler:8.4.0",
+            "butterknife"         : "com.jakewharton:butterknife:8.4.0",
+            //原点指示器
+            "circleindicator"     : "me.relex:circleindicator:1.2.2"
+
+    ]
+}

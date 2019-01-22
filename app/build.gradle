@@ -1,0 +1,147 @@
+apply plugin: 'com.android.application'
+
+
+def releaseTime() {
+    return new Date().format("MMddHHmm", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    buildToolsVersion rootProject.ext.versions.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
+        versionCode rootProject.ext.versions.versionCode
+        versionName rootProject.ext.versions.versionName
+        //MultiDex分包方法
+        multiDexEnabled true
+
+        //Arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi-v7a'
+        }
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'mydemo'
+            keyPassword '123456'
+            storeFile file('../mydemo.jks')
+            storePassword '123456'
+        }
+        debug {
+            keyAlias 'mydemo'
+            keyPassword '123456'
+            storeFile file('../mydemo.jks')
+            storePassword '123456'
+        }
+
+        dev {
+            keyAlias 'mydemo'
+            keyPassword '123456'
+            storeFile file('../mydemo.jks')
+            storePassword '123456'
+        }
+
+        prepare {
+            keyAlias 'mydemo'
+            keyPassword '123456'
+            storeFile file('../mydemo.jks')
+            storePassword '123456'
+        }
+    }
+    flavorDimensions "default"
+    productFlavors {
+        app_online {
+            applicationId "com.mr.liu.demo"
+            buildConfigField("String", "HOST", "\"http://111.11.11.11:8080/\"")//随便写的
+            signingConfig = signingConfigs.release
+        }
+        app_debug {
+            applicationId "com.mr.liu.demo"
+            signingConfig = signingConfigs.debug
+        }
+        app_dev {
+            applicationId "com.mr.liu.demo"
+            buildConfigField("String", "HOST", "\"http://111.11.11.11:8080/\"")//随便写的
+            signingConfig = signingConfigs.dev
+        }
+        app_prepare {
+            applicationId "com.mr.liu.demo"
+            signingConfig = signingConfigs.prepare
+        }
+
+    }
+    applicationVariants.all {
+        variant ->
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    def versionName = android.defaultConfig.versionName
+                    def channelName = variant.productFlavors[0].name
+                    def newName = "mydemo_${channelName}_${releaseTime()}_${versionName}_.apk"
+                    outputFileName = new File(newName)
+                }
+            }
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            signingConfig null
+            minifyEnabled false
+            zipAlignEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            signingConfig null
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs', 'src/main/jniLibs']
+            java {
+                srcDirs = ['src/main/java']
+            }
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
+    //公用依赖包
+    implementation project(':modulebase')
+    //Arouter路由
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+
+}

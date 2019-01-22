@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp58">
+
+    <ImageView
+        android:id="@+id/iv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_toRightOf="@+id/iv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp20"
+        android:textColor="@color/color_353535"
+        android:textSize="@dimen/sp16" />
+
+    <TextView
+        android:id="@+id/tv_for_next_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/rl_iv_next"
+        android:layout_marginRight="@dimen/dp20"
+        android:textColor="@color/color_353535"
+        android:textSize="@dimen/sp14"/>
+    <RelativeLayout
+        android:layout_centerVertical="true"
+        android:id="@+id/rl_iv_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp20">
+        <ImageView
+            android:id="@+id/iv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_right" />
+        <Switch
+            android:id="@+id/setting_item_switch"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp30"
+            android:switchMinWidth="@dimen/dp20"
+            android:textOn="  "
+            android:textOff="  "
+            android:thumb="@drawable/thumb"
+            android:track="@drawable/track"
+            android:visibility="gone"/>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_marginRight="@dimen/dp20"
+        android:layout_marginLeft="@dimen/dp20"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_e7e7e7"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp0.5"/>
+
+</RelativeLayout>

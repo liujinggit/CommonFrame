@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ExpandTextView">
+        <attr name="showLines" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="SettingItemView">
+        <attr name="icon_left" format="reference"/><!-- 最左边icon -->
+        <attr name="text_title" format="string|reference" /><!--最左边icon右边文字-->
+        <!--<attr name="text_right" format="string|reference" />-->
+        <attr name="next_iv" format="integer|reference" /><!--下一步按钮-->
+        <attr name="show_switch" format="boolean"/><!--是否显示switch-->
+    </declare-styleable>
+
+    <!--圆形图片-->
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+</resources>
