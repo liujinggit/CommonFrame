@@ -64,7 +64,7 @@ public class FindFragment extends BaseFragment implements FindInterface {
 
     @Override
     protected void initView(View view) {
-
+        mList.clear();
         for (int i = 0; i < 9; i++) {
             mList.add("http://images-dev.iyunrui.com.cn/20190115/1326a1e0-156a-4cc8-becd-c7a9fe165de2.jpg");
         }
