@@ -1,4 +1,6 @@
 # CommonFrame
 通用框架以及工具类
-## GIF 展示其中两个简单页面
+## 封装fresco
+### 封装rxjava retrofit okhttp
+####其他工具类
 
